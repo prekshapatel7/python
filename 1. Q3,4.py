@@ -1,0 +1,24 @@
+#multiply two numbers question 3
+def multiply(a,b):
+    multiplication = a*b
+    print("product of two numbers is ", multiplication)
+multiply(3,6)
+multiply(5,9)
+
+#divide two numbers question 4
+def divide(a,b):
+    division=a/b
+    print("the quotient by dividing given two nubers is ",division)
+divide(4,2)
+divide(7,6)
+
+#Add, multiply, subtract and divide two numbers.
+def math(a,b):
+    addition =a+b
+    subtraction=a-b
+    multiplication =a*b
+    division = a/b
+    print("the addition, subtraction,multilication, multiplication,division of given two numbers is respectively", addition, subtraction,multiplication, division)
+
+math(4,8)
+    
