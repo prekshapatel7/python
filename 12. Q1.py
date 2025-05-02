@@ -1,26 +1,40 @@
-'''Write a program to create a class that represents Complex numbers containing real and imaginary parts and then use it to perform complex number addition,
+'''Write a program to create a class that represents Complex numbers containing
+real and imaginary parts and then use it to perform complex number addition,
 subtraction, multiplication and division.'''
-'''a=4+3j #here j is coming 
-b=3-2j
-print(a,type(a))
-print(b,type(b))
-c=a+b
-d=a-b
-e=a*b
-f=a/b
-print(c)
-print(d)
-print(e)
-print(f)'''
-class xcomplex:
-    def __init__(self,r=0,i=0):
-        self.r=r
-        self.i=i
-    def display(self):
-        print(f'{self.r}{self.i:+}i')
-a=xcomplex(4,3)
-b=xcomplex(3,-2)
-a.display()
-b.display()
-print(a)
+class Complex:
+    def __init__(self, real, imag):
+        self.real = real
+        self.imag = imag
 
+    def __str__(self):
+        return f"{self.real} + {self.imag}i"
+
+    def add(self, other):
+        return Complex(self.real + other.real, self.imag + other.imag)
+
+    def subtract(self, other):
+        return Complex(self.real - other.real, self.imag - other.imag)
+
+    def multiply(self, other):
+        real = self.real * other.real - self.imag * other.imag
+        imag = self.real * other.imag + self.imag * other.real
+        return Complex(real, imag)
+
+    def divide(self, other):
+        denominator = other.real**2 + other.imag**2
+        if denominator == 0:
+            return "Division by zero is not allowed."
+        real = (self.real * other.real + self.imag * other.imag) / denominator
+        imag = (self.imag * other.real - self.real * other.imag) / denominator
+        return Complex(real, imag)
+
+# Example usage:
+c1 = Complex(4, 5)
+c2 = Complex(2, 3)
+
+print("c1 =", c1)
+print("c2 =", c2)
+print("Addition:", c1.add(c2))
+print("Subtraction:", c1.subtract(c2))
+print("Multiplication:", c1.multiply(c2))
+print("Division:", c1.divide(c2))
